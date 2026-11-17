@@ -103,6 +103,8 @@
       (a/equal (place (assoc ok :total_micros 1) now) "approval-mismatch")
       (a/equal (place (assoc ok :action "award") now) "approval-mismatch")
       (a/equal (place ok (js/Date.parse "2026-12-02T00:00:00Z")) "quote-expired")
+      (a/equal (reason #(r/transition (assoc aw :awarded_supplier_id "did:web:gone.example")
+                                      {:type "place-order" :approval ok} now)) "no-such-quote")
       (a/equal (:state (r/transition aw {:type "place-order" :approval ok} now)) "ordered"))))
 
 (test "withdrawn and expired quotes drop out of the ranking"

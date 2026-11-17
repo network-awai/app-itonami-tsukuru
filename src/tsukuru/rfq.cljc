@@ -176,6 +176,7 @@
     "place-order"
     (let [q (quote-of r (:awarded_supplier_id r))]
       (require-state r "awarded")
+      (when-not q (refuse "no-such-quote"))
       (when-not (> (parse-time (:valid_until q)) now-ms) (refuse "quote-expired"))
       (when-not (approval-ok? r q (:approval e)) (refuse "approval-mismatch"))
       (assoc r :state "ordered"
