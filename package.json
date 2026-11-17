@@ -1,0 +1,12 @@
+{
+  "name": "@itonami/tsukuru",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "squint compile && node --test .agent-output/compiled/rfq_test.mjs"
+  },
+  "devDependencies": {
+    "squint-cljs": "0.16.214"
+  }
+}
