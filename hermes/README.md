@@ -43,3 +43,14 @@ sessions, memories, logs, caches, run state.
 | `tsukuru-design-review` | tsukuru 運営 fleet: 商品設計 sim/審査/RFQ 進行 |
 | `tsukuru-rfq` | tsukuru 運営 fleet: 商品設計 sim/審査/RFQ 進行 |
 | `tsukuru-sim` | tsukuru 運営 fleet: 商品設計 sim/審査/RFQ 進行 |
+
+## Inference rail
+
+These are Hermes agents. They never name murakumo or mishima — not in `model`,
+`providers`, `fallback_providers` or a cron `model`/`provider` pin
+(itonami-agent AGENTS.md "Two CLIs"; AWAI-3303). Their default is OpenRouter
+(`xiaomi/mimo-v2.6-pro`); other providers (openrouter-free, kotoba) stay as
+they are. Inference on Murakumo / mishima belongs to itonami agent profiles.
+
+The change is to these definitions only. A host profile is updated when it is
+materialized from here, which needs its own operator step.
