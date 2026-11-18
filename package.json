@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "squint compile && node --test .agent-output/compiled/rfq_test.mjs"
+    "test": "squint compile && node --test .agent-output/compiled/rfq_test.mjs .agent-output/compiled/profile_test.mjs"
   },
   "devDependencies": {
     "squint-cljs": "0.16.214"
