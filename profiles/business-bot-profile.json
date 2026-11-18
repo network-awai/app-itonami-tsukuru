@@ -1,0 +1,76 @@
+{
+  "schema": "itonami.business-bot-profile.v1",
+  "provenance": {
+    "repository": "com-junkawasaki/root",
+    "path": "90-docs/business/itonami-business-bot-profiles.json",
+    "revision": "3ec76feea47948320d18fbe84496cf3ab9121468",
+    "registry_schema": "itonami.business-bot-profiles.v1",
+    "registry_generated": "2026-09-03",
+    "transformation": "single profile entry copied unchanged under `profile`"
+  },
+  "mission": {
+    "statement": "全人類を労働から解放する",
+    "instrument": "governed business bots: one DO per (blueprint x assignment), hourly bounded loop, governor-vetted effects, append-only audit",
+    "origin_directive": "ADR-2609022000 (yui, 2026-09-02 owner directive)"
+  },
+  "profile": {
+    "profile_id": "bot-profile:cloud-itonami-isic-4610",
+    "kind": "business",
+    "business_blueprint": {
+      "id": "cloud-itonami-isic-4610",
+      "name": "Wholesale on a fee or contract basis",
+      "domain": "commerce/commission-brokerage",
+      "isic_rev5": "4610",
+      "repo": "https://github.com/network-awai/app-itonami-cloud-itonami-isic-4610",
+      "repo_path": "/network-awai/app-itonami-cloud-itonami-isic-4610",
+      "governor": "commission-broker-governor",
+      "console": "https://network-awai.github.io/app-itonami-cloud-itonami-isic-4610/",
+      "offer": "Governed B2B commission-brokerage actor (CommTradeAdvisor sealed behind Commission Broker Governor: principal-diligence, dual-agency and sanctions checks; audit ledger). The broker never takes title and never settles the underlying trade; buyer and supplier settle directly. Tsukuru use: supplier discovery, RFQ drafts, quote comparison and quote summaries for the buyer (RFQ contract itonami.tsukuru.rfq.v1, AWAI-3244). Publishing an RFQ, awarding a quote, placing an order and any payment need the user's explicit approval for that exact operation. Paired app: network-awai/app-itonami-tsukuru (AWAI-3246).",
+      "self_registered": false,
+      "maturity_seed": false
+    },
+    "identity": {
+      "mail": null,
+      "note": "agentmail inbox optional; not provisioned yet"
+    },
+    "mission": {
+      "thesis": "全人類を労働から解放する — blueprint が担う経済領域を governed actor で自動化する",
+      "domain_goal": "b2b-trade-transparency",
+      "domain_family": "commerce"
+    },
+    "runtime": {
+      "plane": "itonami-grok-bots (DO per bot)",
+      "model": "murakumo-main alias (KV resolved; never hardcode model ids)",
+      "interval_ms": 3600000,
+      "governor": "commission-broker-governor",
+      "registry_source": "https://itonami.cloud/api/open-business (DO re-fetches at launch)"
+    },
+    "money": {
+      "spending": "unique lending position only (trial LP, non-transferable, no on-chain token)",
+      "allowed_services": [
+        "murakumo",
+        "kotobase"
+      ],
+      "credit_bounds_micro_usdc": {
+        "min": 1000,
+        "max": 50000
+      },
+      "state": {
+        "assigned": false
+      }
+    },
+    "audit": {
+      "checkpoint": "append-only event ledger per DO",
+      "public_feed": "https://itonami.cloud/api/v1/grok-bots/bots/{bot_id}/activity",
+      "integrity": "sha256 / itonami-stable-json-v1 (measured on live events)"
+    },
+    "health_rule": {
+      "fail_closed": true,
+      "rule": "running is not healthy; read last_error + published vs failed + recent checkpoint"
+    },
+    "provisioning": {
+      "state": "blueprint-only",
+      "next_action": "operator approval needed to launch (POST /v1/grok-bots); murakumo fleet is down (AWAI-3246), so no launch until the itonami inference rail is healthy"
+    }
+  }
+}
