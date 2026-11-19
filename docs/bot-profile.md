@@ -63,8 +63,8 @@ Reasons:
 - Their RFQ queue role is now covered by the RFQ contract and the itonami profile above.
 - Keeping them would mix the Hermes and itonami rails for the same business.
 
-Still open:
+Still open (AWAI-3315 host/manifest status, checked 2026-11-19):
 
-- Remove the four entries from `com-junkawasaki/root` `manifest/hermes-profile-repos.kotoba`, then regenerate the edn view.
-- Stop any host copy under `~/.hermes/profiles/`. A host copy is a live bot, so this needs operator approval. Whether a host still runs one is unknown. This machine has none.
-- `cloud-itonami/tsukuru` holds another copy of the three profiles. It is not changed here.
+- Remove the four entries from `com-junkawasaki/root` `manifest/hermes-profile-repos.kotoba`, then regenerate the edn view. That manifest lives in another repository; it is not changed here.
+- Stop any host copy under `~/.hermes/profiles/`. A host copy is a live bot, so this needs operator approval. This Mac: none — `ls ~/.hermes/profiles/` fails (no such directory) and `ls ~/.hermes/` shows only `config.yaml`, `logs`, `plugins`, so no `tsukuru-*` copy exists here. Other hosts: unknown; checking or stopping them needs operator approval.
+- `cloud-itonami/tsukuru` holds another copy of the three profiles. It is not changed here; handling needs an owner decision.
