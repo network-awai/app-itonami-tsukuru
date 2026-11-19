@@ -1,20 +1,24 @@
 # hermes/ — retired Hermes profiles (AWAI-3246)
 
 > **Retired 2026-11-18 (AWAI-3246).** `tsukuru-design-review`, `tsukuru-rfq` and
-> `tsukuru-sim` are no longer the bots for this repository. Their
-> `config.yaml` uses `model: provider: murakumo`. The workspace rule allows
+> `tsukuru-sim` are no longer the bots for this repository. At retirement
+> their `config.yaml` used `model: provider: murakumo`. The workspace rule allows
 > murakumo only on the itonami rail and on Awai Otehon Hermes profiles, so these
-> profiles break it. Their RFQ role moves to the itonami business bot profile
-> `bot-profile:cloud-itonami-isic-4610`
+> profiles break it. (AWAI-3303 later moved these record copies to provider
+> `awai-node`. They are still retired.) Their RFQ role moves to the itonami
+> business bot profile `bot-profile:cloud-itonami-isic-4610`
 > (`profiles/business-bot-profile.json`) and the RFQ contract `src/tsukuru/rfq.cljc`.
 > See `docs/bot-profile.md`.
 >
 > The files stay here unchanged as a record. `com-junkawasaki/root`
 > `manifest/hermes-profile-repos.kotoba` still points at this path. Do not
-> materialize, export or run these profiles again. Two things are still open:
-> removing them from that manifest and stopping any host copy. A host copy is
-> a live bot, so stopping it needs operator approval. Whether a host still runs
-> them is unknown.
+> materialize, export or run these profiles again. Still open (AWAI-3315):
+> removing them from that manifest (another repository), stopping any host
+> copy, and the `cloud-itonami/tsukuru` copies (another repository). A host
+> copy is a live bot, so stopping it needs operator approval. Host state:
+> this Mac (2026-11-19) has no `~/.hermes/profiles/` at all — `ls` shows only
+> `config.yaml`, `logs`, `plugins` under `~/.hermes/` — so no `tsukuru-*`
+> copy here. Other hosts: unknown.
 
 ## Original description (historical)
 
